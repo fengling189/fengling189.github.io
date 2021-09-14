@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>光猫配置</title>
+      <link href="/2021/09/14/%E5%85%89%E7%8C%AB%E9%85%8D%E7%BD%AE/"/>
+      <url>/2021/09/14/%E5%85%89%E7%8C%AB%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p><a href="http://192.168.1.1:8080/">http://192.168.1.1:8080</a></p></li><li><p>光猫超级密码</p></li><li><p><img src="./20210914202755.jpg" alt="主图"></p></li><li><p>先试试默认的超级密码能不能进光猫<br>中国电信<br>telecomadmin<br>密码</p><p>nE7jA%5m</p><p>中国联通<br>CUAdmin<br>密码<br>CUAdmin</p><p>中国移动<br>CMCCAdmin<br>密码<br>aDm8H%MdA</p><p>华为<br>telecomadmin<br>密码<br>admintelecom</p></li><li><p>TEWA-708E </p></li><li><p>注册码731064569997</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 光猫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>S5700的Eth-Trunk端口汇聚及Trunk删除</title>
+      <link href="/2021/09/14/S5700%E7%9A%84Eth-Trunk%E7%AB%AF%E5%8F%A3%E6%B1%87%E8%81%9A%E5%8F%8ATrunk%E5%88%A0%E9%99%A4/"/>
+      <url>/2021/09/14/S5700%E7%9A%84Eth-Trunk%E7%AB%AF%E5%8F%A3%E6%B1%87%E8%81%9A%E5%8F%8ATrunk%E5%88%A0%E9%99%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="S5700的Eth-Trunk端口汇聚及Trunk删除"><a href="#S5700的Eth-Trunk端口汇聚及Trunk删除" class="headerlink" title="S5700的Eth-Trunk端口汇聚及Trunk删除"></a>S5700的Eth-Trunk端口汇聚及Trunk删除</h1><h4 id="S5700的Eth-Trunk端口汇聚"><a href="#S5700的Eth-Trunk端口汇聚" class="headerlink" title="S5700的Eth-Trunk端口汇聚"></a>S5700的Eth-Trunk端口汇聚</h4><p>链路汇聚和端口汇聚，就是端口聚合，交换机的堆叠是堆叠和端口聚合无关。</p><p>端口聚合概念：（包括二层端口聚合和三层端口聚合）</p><p>1.端口聚合IEEE标准是将最多16条链路聚合成一个逻辑的链路。其中只有8条可以使用，</p><p>  其余8条作为备份。</p><p>2.做聚合的端口配置，物理介质性质（双工模式，接口带宽等等）必须一样</p><p>3.端口聚合可以提高带宽，但是不是物理上的提高，而是基于负载均衡的提高</p><p>4.做端口聚合的端口只能以2的倍数个链路做聚合，即只能2、4、6、8条链路做聚合，</p><p>不能是奇数链路做聚合</p><p>Eth-Trunk简单端口汇聚：（本地负载均衡）<br><img src="https://img-blog.csdn.net/20151225162056263"></p><h5 id="SW1："><a href="#SW1：" class="headerlink" title="SW1："></a>SW1：</h5><p>[SW1]interface Eth-Trunk 1   #建立汇聚端口1</p><p>[SW1-Eth-Trunk1]port link-type access  #更改端口为访问端口，如果下面是两台交换机，则需要更改为port link-type trunk模式。</p><p>[SW1-Eth-Trunk1]mode manual load-balance  #添加手动本地负载模式</p><p>[SW1-Eth-Trunk1]quit</p><p>[SW1]interface GigabitEthernet 0/0/1</p><p>[SW1-GigabitEthernet0/0/1]eth-trunk1  #将端口0/0/1加入eth-trunk1</p><p>[SW1]interface GigabitEthernet 0/0/2</p><p>[SW1-GigabitEthernet0/0/2]eth-trunk1  #将端口0/0/2加入eth-trunk1</p><p>[SW1]interface vlan 1</p><p>[SW1-Vlanif1]ip address 192.168.1.254255.255.255.0</p><p>[SW1-Vlanif1]quit  </p><h5 id="SW2"><a href="#SW2" class="headerlink" title="SW2:"></a>SW2:</h5><p>[SW2]interface vlan 1</p><p>[SW2-Vlanif1]ip add </p><p>[SW2-Vlanif1]ip address 192.168.1.1255.255.255.0</p><p>[SW2-Vlanif1]quit</p><p>通过抓包验证时如果断开GigabitEthernet 0/0/1接口下连线的情况下，会自动切换到GigabitEthernet 0/0/2端口下进行通信。</p><h4 id="删除端口下trunk的正确方法："><a href="#删除端口下trunk的正确方法：" class="headerlink" title="删除端口下trunk的正确方法："></a>删除端口下trunk的正确方法：</h4><p>(因为端口默认是在vlan1的，如果删除了全部，端口就没有默认vlan1的配置了，需要重新加回来，才可以继续下一步的删除。)</p><pre><code>[SWH1]interfaceGigabitEthernet 0/0/2[SWH1-GigabitEthernet0/0/2]undoport trunk allow-pass vlan all[SWH1-GigabitEthernet0/0/2]porttrunk allow-pass vlan 1[SWH1-GigabitEthernet0/0/2]undoport link-type[SWH1-GigabitEthernet0/0/2]quit</code></pre><p><strong>Eth-Trunk不同或者相同的vlan间互通：</strong></p><p><img src="https://img-blog.csdn.net/20151225162226153"></p><h5 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h5><p>192.168.10.23/24</p><p>192.168.20.99/24</p><p>192.168.30.45/24    Gateway：192.168.X.1/24</p><p>这三台电脑都为测试使用，其实直接用交换进行ping也可以进行测试，纯属个人习惯。</p><p>VLAN: 10 20 30</p><p>Vlanif10：192.168.10.254/24</p><p>Vlanif20：192.168.20.254/24</p><p>Vlanif30：192.168.30.254/24</p><h5 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h5><h6 id="SWH1"><a href="#SWH1" class="headerlink" title="SWH1:"></a>SWH1:</h6><pre><code>[SWH1]vlan batch 10 20 30[SWH1]interface vlan 10[SWH1-Vlanif10]ip address192.168.10.254 24[SWH1-Vlanif10]ip address 192.168.20.254 24[SWH1-Vlanif10]ip address 192.168.30.254 24[SWH1-Vlanif10]quit[SWH1]interface Eth-Trunk 1[SWH1-Eth-Trunk1]port link-type trunk[SWH1-Eth-Trunk1]port trunk allow-pass vlanall[SWH1-Eth-Trunk1]mode manual load-balance[SWH1-Eth-Trunk1]trunkport GigabitEthernet 0/0/1[SWH1-Eth-Trunk1]trunkport GigabitEthernet 0/0/4[SWH1]interface vlan 20[SWH1-Vlanif20]ip address 192.168.20.254 24[SWH1]interface Eth-Trunk 2[SWH1-Eth-Trunk2]port link-type trunk[SWH1-Eth-Trunk2]port trunk allow-pass vlanall[SWH1-Eth-Trunk2]mode manual load-balance[SWH1-Eth-Trunk2]trunkport GigabitEthernet 0/0/2[SWH1-Eth-Trunk2]trunkport GigabitEthernet 0/0/5[SWH1]interface vlan 30[SWH1-Vlanif30]ip address 192.168.30.254 24[SWH1]interface Eth-Trunk 3[SWH1-Eth-Trunk3]port link-type trunk[SWH1-Eth-Trunk3]port trunk allow-pass vlanall[SWH1-Eth-Trunk3]mode manual load-balance[SWH1-Eth-Trunk3]trunkport GigabitEthernet 0/0/3[SWH1-Eth-Trunk3]trunkport GigabitEthernet 0/0/6[SWH1]interface GigabitEthernet 0/0/24[SWH1-GigabitEthernet0/0/24]port link-type access[SWH1-GigabitEthernet0/0/24]port default vlan 10[SWH1-GigabitEthernet0/0/24]quit</code></pre><h6 id="SWH4"><a href="#SWH4" class="headerlink" title="SWH4:"></a>SWH4:</h6><pre><code>[SWH4]vlan batch 10 20 30[SWH4]interface Ethernet 0/0/22[SWH4-Ethernet0/0/22]port link-type access[SWH4-Ethernet0/0/22]port default vlan 20[SWH4-Ethernet0/0/22]quit[SWH4]interface vlan 20[SWH4-Vlanif20]ip address192.168.20.1 255.255.255.0[SWH4-Vlanif20]quit[SWH4]interface Eth-Trunk 2[SWH4-Eth-Trunk2]trunkport GigabitEthernet0/0/1[SWH4-Eth-Trunk2]trunkport GigabitEthernet0/0/2[SWH4-Eth-Trunk2]port link-type trunk[SWH4-Eth-Trunk2]port trunk allow-pass vlanall[SWH4-Eth-Trunk2]mode manual load-balance[SWH4-Eth-Trunk2]quit[SWH4]iproute-static 192.168.10.0 24 192.168.20.254[SWH4]iproute-static 192.168.30.0 24 192.168.20.254</code></pre><h6 id="SWH5"><a href="#SWH5" class="headerlink" title="SWH5:"></a>SWH5:</h6><p>跟SWH4的配置是一样的，就是最后的静态路由改变了。</p><pre><code>[SWH5]vlan batch 10 20 30[SWH5]interface Eth-Trunk 3[SWH5-Eth-Trunk3]trunkport GigabitEthernet0/0/1[SWH5-Eth-Trunk3]trunkport GigabitEthernet0/0/2[SWH5-Eth-Trunk3]port link-type trunk[SWH5-Eth-Trunk3]port trunk allow-pass vlanall[SWH5-Eth-Trunk3]mode manual load-balance[SWH5-Eth-Trunk3]quit[SWH5]interface vlan 30[SWH5-Vlanif30]ip address 192.168.30.1 255.255.255.0[SWH5-Vlanif30]quit[SWH5]ip route-static192.168.10.0 24 192.168.30.254[SWH5]ip route-static 192.168.20.0 24192.168.30.254</code></pre><h6 id="SWH3"><a href="#SWH3" class="headerlink" title="SWH3:"></a>SWH3:</h6><p>跟SWH4的配置是一样的，就是最后的静态路由改变了。</p><pre><code>[SWH3]vlan batch 10 20 30[SWH3]interface Eth-Trunk 1[SWH3-Eth-Trunk1]trunkport GigabitEthernet0/0/1[SWH3-Eth-Trunk1]trunkport GigabitEthernet0/0/2[SWH3-Eth-Trunk1]port link-type trunk[SWH3-Eth-Trunk1]port trunk allow-pass vlanall[SWH3-Eth-Trunk1]mode manual load-balance[SWH3-Eth-Trunk1]quit[SWH3]interface vlan 10[SWH3-Vlanif10]ip address 192.168.10.1 255.255.255.0[SWH5-Vlanif10]quit[SWH3]ip route-static192.168.30.0 24 192.168.10.254[SWH3]ip route-static 192.168.20.0 24192.168.10.254</code></pre><p>检测都可以ping通，且抓包可以实现自动切换。</p><p>注意：在本地配置Eth-Trunk的时候，在对端也要进行Eth-Trunk的配置，且加上路由就可以实现不同网段间的互通。</p><p><a href="https://blog.csdn.net/u012402276/article/details/50403897">原文链接</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Trunk端口汇聚及Trunk删除 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>华为思科交换机配置SNMP</title>
+      <link href="/2021/09/14/%E5%8D%8E%E4%B8%BA%E6%80%9D%E7%A7%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AESNMP/"/>
+      <url>/2021/09/14/%E5%8D%8E%E4%B8%BA%E6%80%9D%E7%A7%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AESNMP/</url>
+      
+        <content type="html"><![CDATA[<h1 id="华为思科交换机配置SNMP"><a href="#华为思科交换机配置SNMP" class="headerlink" title="华为思科交换机配置SNMP"></a>华为思科交换机配置SNMP</h1><h4 id="华为交换机配置"><a href="#华为交换机配置" class="headerlink" title="华为交换机配置"></a>华为交换机配置</h4><pre><code>system-view &lt;!--#进入系统视图--&gt;snmp-agent &lt;!--#使能snmp-agent--&gt;snmp-agent community read isesolSYSW &lt;!--#设置可读团体名--&gt;snmp-agent sys-info version all snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c &lt;!--#设置接收 SNMP 通知/陷阱报文的目标主机--&gt;</code></pre><h5 id="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"><a href="#不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置" class="headerlink" title="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"></a>不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置</h5><pre><code>   system-view #进入系统视图   display current-configuration #查看原有配置   undo snmp-agent community read cipher %^%#sN(lNiTo[&lt;JeO)UkV8a/_WsTMacs&gt;&lt;&gt;8jI=c~8J)C&#123;FUIGY&#39;j5n5#\:Ek|$:_li$&lt;;52&#123;Bi=%pQEx-LT%^%# #取消原有团体名   undo snmp-agent target-host inform address udp-domain 172.20.10.90 udp-port 161 params securityname cipher %^%#W,O@-MawcNvxL4NM*_!AxW`@4jOp(F1Wid.*ra:V%^%# #取消原有target-host   snmp-agent community read isesolSYSW #设置新的团体名   snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c #设置新的target-host   undo snmp-agent #取消启用snmp-agent   snmp-agent #重新启用snmp-agent   quit #退出系统视图   save #保存当前配置</code></pre><h5 id="其他配置-联系方式和位置，这个可有可无"><a href="#其他配置-联系方式和位置，这个可有可无" class="headerlink" title="其他配置 联系方式和位置，这个可有可无"></a>其他配置 联系方式和位置，这个可有可无</h5><pre><code>snmp-agent sys-info contact mail:10000@qq.com          #设置联系方式 snmp-agent sys-info location 2nd-flood                #设置设备位置</code></pre><p>trap和inform<br>能够解析Trap和Inform报文的设备,通常为NMS<br>Trap报文发出去之后不会收到响应报文，而inform报文在发出报文之后能收到响应报文</p><h4 id="思科交换机配置"><a href="#思科交换机配置" class="headerlink" title="思科交换机配置"></a>思科交换机配置</h4><pre><code>enable #进入特权模式Password: password #输入特权密码conf t #进入配置模式snmp-server community isesolSYSW ro #设置只读团体名snmp-server enable traps #设置陷阱snmp-server host 10.24.220.230 isesolSYSW #设置目标ipsnmp-server trap-source loopback0  将loopback接口的IP地址作为SNMP Trap的发送源地址do wr #保存配置</code></pre><h5 id="若有原有配置，需要先清除"><a href="#若有原有配置，需要先清除" class="headerlink" title="若有原有配置，需要先清除"></a>若有原有配置，需要先清除</h5><pre><code>enable #进入特权模式Password: password #输入特权密码conf t #进入配置模式show running-config #显示当前配置no snmp-server host inside 10.24.11.230 community ***** #取消原有目标hostno snmp-server community ***** #取消原有团体名snmp-server host inside 10.24.220.230 community isesolSYSW #设置新目标hostsnmp-server community isesolSYSW #设置新团体名do copy running-config startup-config #保存配置</code></pre><h5 id="思科防火墙，思科路由器，思科无线控制器配置的命令会有少许差别。"><a href="#思科防火墙，思科路由器，思科无线控制器配置的命令会有少许差别。" class="headerlink" title="思科防火墙，思科路由器，思科无线控制器配置的命令会有少许差别。"></a>思科防火墙，思科路由器，思科无线控制器配置的命令会有少许差别。</h5><h6 id="思科防火墙"><a href="#思科防火墙" class="headerlink" title="思科防火墙"></a>思科防火墙</h6><pre><code>no snmp-server host inside 10.24.220.230 #取消配置no snmp-server community isesolSYSW #取消配置no snmp-server enable traps #取消配置 snmp-server host inside 10.24.220.230 community isesolSYSWsnmp-server community isesolSYSWsnmp-server enable traps</code></pre><h5 id="对于升级后的防火墙，设置snmp-host时需要指定版本号，否则监控工具失效"><a href="#对于升级后的防火墙，设置snmp-host时需要指定版本号，否则监控工具失效" class="headerlink" title="对于升级后的防火墙，设置snmp host时需要指定版本号，否则监控工具失效"></a>对于升级后的防火墙，设置snmp host时需要指定版本号，否则监控工具失效</h5><pre><code>snmp-server host inside 10.24.220.230 community isesolSYSW version 2c</code></pre><h5 id="SNMP配置验证"><a href="#SNMP配置验证" class="headerlink" title="SNMP配置验证"></a>SNMP配置验证</h5><p>.1.3.6.1.2.1.1.1.0 #交换机品牌、型号等信息</p><pre><code>snmpwalk -v 2c -c public 10.24.11.1 .1.3.6.1.2.1.1.1.0</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 配置SNMP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>华为交换机用户登录与密码修改</title>
+      <link href="/2021/09/14/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/"/>
+      <url>/2021/09/14/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="华为交换机用户登录与密码修改"><a href="#华为交换机用户登录与密码修改" class="headerlink" title="华为交换机用户登录与密码修改"></a>华为交换机用户登录与密码修改</h1><p>一、交换机的缺省密码都是什么？</p><p>登录交换机时小伙伴们可要擦亮眼睛看下当前交换机是哪个版本，用什么方式登录。版本不一样或者登录方式不一样缺省密码可能是有差别滴。对于Telnet方式登录交换机，缺省情况下设备上没有配置Telnet用户，需要小伙伴们自己配置。要是小伙伴们用Console口登录交换机可是没有缺省密码值的哦。</p><p><img src="https://img-blog.csdnimg.cn/20201118151606455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE4MTEzNw==,size_16,color_FFFFFF,t_70#pic_center"></p><h4 id="1-恢复Console口登录密码"><a href="#1-恢复Console口登录密码" class="headerlink" title="1.恢复Console口登录密码"></a>1.恢复Console口登录密码</h4><h5 id="方法一：通过Telnet登录交换机修改Console口密码。"><a href="#方法一：通过Telnet登录交换机修改Console口密码。" class="headerlink" title="方法一：通过Telnet登录交换机修改Console口密码。"></a>方法一：通过Telnet登录交换机修改Console口密码。</h5><p>如果小伙伴们拥有Telnet账号，并且具有管理员权限，则可以通过Telnet登录到交换机后修改Console口密码，然后保存配置。</p><p>步骤1：用Telnet账号登录交换机。</p><p>步骤2：修改Console用户的密码。</p><p>以修改为password认证，密码为“Huawei@123”为例。</p><pre><code>system-view[HUAWEI] user-interface console 0[HUAWEI-ui-console0] authentication-mode password[HUAWEI-ui-console0] set authentication password cipher Huawei@123[HUAWEI-ui-console0] return</code></pre><p>步骤3：用save命令保存配置，防止重启后配置丢失。</p><h5 id="方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。"><a href="#方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。" class="headerlink" title="方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。"></a>方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。</h5><p>要是交换机是双主控，小伙伴们就需要在重启交换机之前将备主控板拔下，待按照下面的操作执行完后，将备主控板插上，再执行save操作保证主用主控板和备用主控板配置一致。</p><p>交换机的BootROM提供了清除Console口密码的功能，可以在用户使用Console口登录的时候跳过密码检查。交换机启动后修改Console口密码，然后保存配置。</p><p>步骤1：通过Console口连接交换机，然后重启交换机。当出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按下组合键“Ctrl+B”并输入BootROM密码（缺省为“<a href="mailto:&#65;&#100;&#x6d;&#x69;&#x6e;&#x40;&#x68;&#x75;&#x61;&#x77;&#x65;&#105;&#x2e;&#99;&#111;&#x6d;">&#65;&#100;&#x6d;&#x69;&#x6e;&#x40;&#x68;&#x75;&#x61;&#x77;&#x65;&#105;&#x2e;&#99;&#111;&#x6d;</a>”），进入BootROM主菜单。</p><p>步骤2：在BootROM主菜单下选择“Clear password for console user”清除Console口登录密码。</p><p>步骤3：根据交换机的提示，在BootROM主菜单下选择“Boot with default mode”启动设备。 不可以凭自己的想象选择”Reboot”哦，否则此次清除密码将失效。</p><p>步骤4：完成系统启动后，通过Console口登录时不需要认证，登录后配置Console口密码，以修改为password认证，并修改密码为“Huawei@123”为例。</p><pre><code>system-view[HUAWEI] user-interface console 0[HUAWEI-ui-console0] authentication-mode password[HUAWEI-ui-console0] set authentication password cipher Huawei@123[HUAWEI-ui-console0] return</code></pre><p>步骤5：用save命令保存配置，防止重启后配置丢失。</p><h4 id="2-恢复Telnet登录密码"><a href="#2-恢复Telnet登录密码" class="headerlink" title="2.恢复Telnet登录密码"></a>2.恢复Telnet登录密码</h4><p>telnet登录密码丢失，可以通过其他方式（例如Console口）登录交换机后重新进行配置。</p><p>步骤1：通过其他方式（例如Console）登录交换机。</p><p>步骤2：修改用户密码。</p><p>以针对VTY0～4配置AAA验证方式，原用户名为“huawei”，密码配置为“Huawei@123”为例。</p><pre><code>system-view[HUAWEI] user-interface vty 0 4[HUAWEI-ui-vty0-4] authentication-mode aaa[HUAWEI-ui-vty0-4] quit[HUAWEI] aaa[HUAWEI-aaa] local-user huawei password irreversible-cipher Huawei@123[HUAWEI-aaa] local-user huawei service-type telnet[HUAWEI-aaa] local-user huawei privilege level 3</code></pre><h4 id="3-恢复Web登录密码"><a href="#3-恢复Web登录密码" class="headerlink" title="3.恢复Web登录密码"></a>3.恢复Web登录密码</h4><p>Web登录密码丢失，可以通过其他方式（例如Console口）登录交换机后重新进行配置。</p><p>步骤1：通过其他方式（例如Console）登录交换机。</p><p>步骤2：修改用户密码。</p><p>以使用AAA认证方式，用户名为“huawei”，修改后的密码为“Huawei@123”为例。</p><pre><code>system-view[HUAWEI] aaa[HUAWEI-aaa] local-user huawei password irreversible-cipher Huawei@123[HUAWEI-aaa] local-user huawei service-type http[HUAWEI-aaa] local-user huawei privilege level 3</code></pre><h4 id="4-恢复BootROM登录密码"><a href="#4-恢复BootROM登录密码" class="headerlink" title="4.恢复BootROM登录密码"></a>4.恢复BootROM登录密码</h4><p>通过Console口登录交换机重置BootROM密码。</p><p>步骤1：通过Console口登录交换机。</p><p>步骤2：在任意视图下使用命令reset boot password恢复BootROM密码为缺省密码（缺省为<a href="mailto:&#65;&#x64;&#x6d;&#x69;&#110;&#x40;&#104;&#117;&#97;&#119;&#101;&#105;&#46;&#99;&#x6f;&#109;">&#65;&#x64;&#x6d;&#x69;&#110;&#x40;&#104;&#117;&#97;&#119;&#101;&#105;&#46;&#99;&#x6f;&#109;</a>）。</p><p>步骤3：在用户视图下使用命令reboot重启交换机。</p><p>步骤4： 当重启过程中出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按组合键“Ctrl+B”，输入缺省密码后进入BootROM主菜单。</p><p>步骤5：在BootROM主菜单下选择“Modify BootROM password”并按照提示修改密码。<br>————————————————<br>版权声明：本文为CSDN博主「Learn right now」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</p><p><a href="https://blog.csdn.net/weixin_42181137/article/details/109774338">原文链接</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 用户登录与密码修改 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2021/09/13/hello-world/"/>
+      <url>/2021/09/13/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="风铃1"><a href="#风铃1" class="headerlink" title="风铃1"></a>风铃1</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HEXO 配置</title>
+      <link href="/2021/09/11/HEXO%20%E9%85%8D%E7%BD%AE/"/>
+      <url>/2021/09/11/HEXO%20%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a href="https://blog.csdn.net/jspnetcn/article/details/104111651" title="感谢大佬提供资源">本文转载</a>  </p><h2 id="前提"><a href="#前提" class="headerlink" title="前提 :"></a><strong>前提 :</strong></h2><pre><code>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</code></pre><ul><li>Node.js (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)  </li><li>Git  </li></ul><ul><li><a href="https://hexo.io/zh-cn/">HEXO官方</a>    </li><li><a href="https://www.jianshu.com/p/191d1e21f7ed">Markdown基础语法</a>    </li><li>配置主题分类 :  </li></ul><ol><li>给文章添加“categories”属性打开需要添加分类的文章，为其添加categories属性。下方的categories:Hexo表示这篇文章添加到到“Hexo”这个分类。注意：一篇文章只会添加到一个分类中，如果是多个默认放到第一个分类中。<br><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">Hexo 添加分类及标签</a><br>```</li></ol><hr><p>title: Hexo 添加分类及标签<br>date: 2019-04-24 15:40:24<br>categories:<br>           - Hexo<br>tags:<br>           - 博客</p><hr><pre><code>## **写文章**  + 路径 根目录/source/_posts/新建*****.md 文件  + 发布文章 </code></pre><p>hexo clean<br>hexo g<br>hexo d<br>hexo s</p><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> HEXO 安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo配置 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
