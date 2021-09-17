@@ -498,7 +498,7 @@
 <p>步骤3：用save命令保存配置，防止重启后配置丢失。</p>
 <h5 id="方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。"><a href="#方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。" class="headerlink" title="方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。"></a>方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。</h5><p>要是交换机是双主控，小伙伴们就需要在重启交换机之前将备主控板拔下，待按照下面的操作执行完后，将备主控板插上，再执行save操作保证主用主控板和备用主控板配置一致。</p>
 <p>交换机的BootROM提供了清除Console口密码的功能，可以在用户使用Console口登录的时候跳过密码检查。交换机启动后修改Console口密码，然后保存配置。</p>
-<p>步骤1：通过Console口连接交换机，然后重启交换机。当出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按下组合键“Ctrl+B”并输入BootROM密码（缺省为“<a href="mailto:&#x41;&#x64;&#x6d;&#x69;&#x6e;&#64;&#104;&#117;&#x61;&#x77;&#101;&#105;&#46;&#99;&#111;&#109;">&#x41;&#x64;&#x6d;&#x69;&#x6e;&#64;&#104;&#117;&#x61;&#x77;&#101;&#105;&#46;&#99;&#111;&#109;</a>”），进入BootROM主菜单。</p>
+<p>步骤1：通过Console口连接交换机，然后重启交换机。当出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按下组合键“Ctrl+B”并输入BootROM密码（缺省为“<a href="mailto:&#x41;&#100;&#109;&#x69;&#x6e;&#64;&#x68;&#x75;&#x61;&#x77;&#101;&#x69;&#46;&#x63;&#x6f;&#x6d;">&#x41;&#100;&#109;&#x69;&#x6e;&#64;&#x68;&#x75;&#x61;&#x77;&#101;&#x69;&#46;&#x63;&#x6f;&#x6d;</a>”），进入BootROM主菜单。</p>
 <p>步骤2：在BootROM主菜单下选择“Clear password for console user”清除Console口登录密码。</p>
 <p>步骤3：根据交换机的提示，在BootROM主菜单下选择“Boot with default mode”启动设备。 不可以凭自己的想象选择”Reboot”哦，否则此次清除密码将失效。</p>
 <p>步骤4：完成系统启动后，通过Console口登录时不需要认证，登录后配置Console口密码，以修改为password认证，并修改密码为“Huawei@123”为例。</p>
@@ -549,7 +549,7 @@
 </code></pre>
 <h4 id="4-恢复BootROM登录密码"><a href="#4-恢复BootROM登录密码" class="headerlink" title="4.恢复BootROM登录密码"></a>4.恢复BootROM登录密码</h4><p>通过Console口登录交换机重置BootROM密码。</p>
 <p>步骤1：通过Console口登录交换机。</p>
-<p>步骤2：在任意视图下使用命令reset boot password恢复BootROM密码为缺省密码（缺省为<a href="mailto:&#65;&#x64;&#109;&#105;&#110;&#64;&#x68;&#x75;&#x61;&#x77;&#x65;&#105;&#46;&#99;&#x6f;&#109;">&#65;&#x64;&#109;&#105;&#110;&#64;&#x68;&#x75;&#x61;&#x77;&#x65;&#105;&#46;&#99;&#x6f;&#109;</a>）。</p>
+<p>步骤2：在任意视图下使用命令reset boot password恢复BootROM密码为缺省密码（缺省为<a href="mailto:&#x41;&#x64;&#109;&#x69;&#110;&#x40;&#x68;&#117;&#97;&#119;&#101;&#105;&#x2e;&#99;&#x6f;&#109;">&#x41;&#x64;&#109;&#x69;&#110;&#x40;&#x68;&#117;&#97;&#119;&#101;&#105;&#x2e;&#99;&#x6f;&#109;</a>）。</p>
 <p>步骤3：在用户视图下使用命令reboot重启交换机。</p>
 <p>步骤4： 当重启过程中出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按组合键“Ctrl+B”，输入缺省密码后进入BootROM主菜单。</p>
 <p>步骤5：在BootROM主菜单下选择“Modify BootROM password”并按照提示修改密码。<br>————————————————<br>版权声明：本文为CSDN博主「Learn right now」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</p>
