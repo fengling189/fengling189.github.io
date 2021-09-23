@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="华为交换机用户登录与密码修改, 风铃网络">
+    <meta name="keywords" content="ONU配置, 风铃网络">
     <meta name="description" content="风铃之音，我的心声！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>华为交换机用户登录与密码修改 | 风铃网络</title>
+    <title>ONU配置 | 风铃网络</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">华为交换机用户登录与密码修改</h1>
+                    <h1 class="description center-align post-title">ONU配置</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">
-                                <span class="chip bg-color">用户登录与密码修改</span>
+                            <a href="/tags/%E5%85%89%E7%8C%AB/">
+                                <span class="chip bg-color">光猫</span>
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-14
+                    2021-09-23
                 </div>
                 
 
@@ -478,83 +478,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="华为交换机用户登录与密码修改"><a href="#华为交换机用户登录与密码修改" class="headerlink" title="华为交换机用户登录与密码修改"></a>华为交换机用户登录与密码修改</h1><p>一、交换机的缺省密码都是什么？</p>
-<p>登录交换机时小伙伴们可要擦亮眼睛看下当前交换机是哪个版本，用什么方式登录。版本不一样或者登录方式不一样缺省密码可能是有差别滴。对于Telnet方式登录交换机，缺省情况下设备上没有配置Telnet用户，需要小伙伴们自己配置。要是小伙伴们用Console口登录交换机可是没有缺省密码值的哦。</p>
-<p><img src="https://img-blog.csdnimg.cn/20201118151606455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjE4MTEzNw==,size_16,color_FFFFFF,t_70#pic_center"></p>
-<h4 id="1-恢复Console口登录密码"><a href="#1-恢复Console口登录密码" class="headerlink" title="1.恢复Console口登录密码"></a>1.恢复Console口登录密码</h4><h5 id="方法一：通过Telnet登录交换机修改Console口密码。"><a href="#方法一：通过Telnet登录交换机修改Console口密码。" class="headerlink" title="方法一：通过Telnet登录交换机修改Console口密码。"></a>方法一：通过Telnet登录交换机修改Console口密码。</h5><p>如果小伙伴们拥有Telnet账号，并且具有管理员权限，则可以通过Telnet登录到交换机后修改Console口密码，然后保存配置。</p>
-<p>步骤1：用Telnet账号登录交换机。</p>
-<p>步骤2：修改Console用户的密码。</p>
-<p>以修改为password认证，密码为“Huawei@123”为例。</p>
-<pre><code>system-view
-
-[HUAWEI] user-interface console 0
-
-[HUAWEI-ui-console0] authentication-mode password
-
-[HUAWEI-ui-console0] set authentication password cipher Huawei@123
-
-[HUAWEI-ui-console0] return
-</code></pre>
-<p>步骤3：用save命令保存配置，防止重启后配置丢失。</p>
-<h5 id="方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。"><a href="#方法二：通过Console口连接交换机，通过-BootROM清除Console口密码登录后，修改Console口密码。" class="headerlink" title="方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。"></a>方法二：通过Console口连接交换机，通过 BootROM清除Console口密码登录后，修改Console口密码。</h5><p>要是交换机是双主控，小伙伴们就需要在重启交换机之前将备主控板拔下，待按照下面的操作执行完后，将备主控板插上，再执行save操作保证主用主控板和备用主控板配置一致。</p>
-<p>交换机的BootROM提供了清除Console口密码的功能，可以在用户使用Console口登录的时候跳过密码检查。交换机启动后修改Console口密码，然后保存配置。</p>
-<p>步骤1：通过Console口连接交换机，然后重启交换机。当出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按下组合键“Ctrl+B”并输入BootROM密码（缺省为“<a href="mailto:&#x41;&#100;&#109;&#x69;&#x6e;&#64;&#104;&#117;&#x61;&#119;&#x65;&#x69;&#x2e;&#99;&#111;&#109;">&#x41;&#100;&#109;&#x69;&#x6e;&#64;&#104;&#117;&#x61;&#119;&#x65;&#x69;&#x2e;&#99;&#111;&#109;</a>”），进入BootROM主菜单。</p>
-<p>步骤2：在BootROM主菜单下选择“Clear password for console user”清除Console口登录密码。</p>
-<p>步骤3：根据交换机的提示，在BootROM主菜单下选择“Boot with default mode”启动设备。 不可以凭自己的想象选择”Reboot”哦，否则此次清除密码将失效。</p>
-<p>步骤4：完成系统启动后，通过Console口登录时不需要认证，登录后配置Console口密码，以修改为password认证，并修改密码为“Huawei@123”为例。</p>
-<pre><code>system-view
-
-[HUAWEI] user-interface console 0
-
-[HUAWEI-ui-console0] authentication-mode password
-
-[HUAWEI-ui-console0] set authentication password cipher Huawei@123
-
-[HUAWEI-ui-console0] return
-</code></pre>
-<p>步骤5：用save命令保存配置，防止重启后配置丢失。</p>
-<h4 id="2-恢复Telnet登录密码"><a href="#2-恢复Telnet登录密码" class="headerlink" title="2.恢复Telnet登录密码"></a>2.恢复Telnet登录密码</h4><p>telnet登录密码丢失，可以通过其他方式（例如Console口）登录交换机后重新进行配置。</p>
-<p>步骤1：通过其他方式（例如Console）登录交换机。</p>
-<p>步骤2：修改用户密码。</p>
-<p>以针对VTY0～4配置AAA验证方式，原用户名为“huawei”，密码配置为“Huawei@123”为例。</p>
-<pre><code>system-view
-
-[HUAWEI] user-interface vty 0 4
-
-[HUAWEI-ui-vty0-4] authentication-mode aaa
-
-[HUAWEI-ui-vty0-4] quit
-
-[HUAWEI] aaa
-
-[HUAWEI-aaa] local-user huawei password irreversible-cipher Huawei@123
-
-[HUAWEI-aaa] local-user huawei service-type telnet
-
-[HUAWEI-aaa] local-user huawei privilege level 3
-</code></pre>
-<h4 id="3-恢复Web登录密码"><a href="#3-恢复Web登录密码" class="headerlink" title="3.恢复Web登录密码"></a>3.恢复Web登录密码</h4><p>Web登录密码丢失，可以通过其他方式（例如Console口）登录交换机后重新进行配置。</p>
-<p>步骤1：通过其他方式（例如Console）登录交换机。</p>
-<p>步骤2：修改用户密码。</p>
-<p>以使用AAA认证方式，用户名为“huawei”，修改后的密码为“Huawei@123”为例。</p>
-<pre><code>system-view
-
-[HUAWEI] aaa
-
-[HUAWEI-aaa] local-user huawei password irreversible-cipher Huawei@123
-
-[HUAWEI-aaa] local-user huawei service-type http
-
-[HUAWEI-aaa] local-user huawei privilege level 3
-</code></pre>
-<h4 id="4-恢复BootROM登录密码"><a href="#4-恢复BootROM登录密码" class="headerlink" title="4.恢复BootROM登录密码"></a>4.恢复BootROM登录密码</h4><p>通过Console口登录交换机重置BootROM密码。</p>
-<p>步骤1：通过Console口登录交换机。</p>
-<p>步骤2：在任意视图下使用命令reset boot password恢复BootROM密码为缺省密码（缺省为<a href="mailto:&#x41;&#100;&#x6d;&#105;&#110;&#x40;&#x68;&#117;&#x61;&#119;&#x65;&#105;&#46;&#99;&#x6f;&#x6d;">&#x41;&#100;&#x6d;&#105;&#110;&#x40;&#x68;&#117;&#x61;&#119;&#x65;&#105;&#46;&#99;&#x6f;&#x6d;</a>）。</p>
-<p>步骤3：在用户视图下使用命令reboot重启交换机。</p>
-<p>步骤4： 当重启过程中出现“Press Ctrl+B to enter Boot Menu…”打印信息时，按组合键“Ctrl+B”，输入缺省密码后进入BootROM主菜单。</p>
-<p>步骤5：在BootROM主菜单下选择“Modify BootROM password”并按照提示修改密码。<br>————————————————<br>版权声明：本文为CSDN博主「Learn right now」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42181137/article/details/109774338">原文链接</a></p>
-
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="<font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font>" />
+    <label for="pass"><font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font></label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+U2FsdGVkX18xeQBtqPJjaMfwaDe+pHITAy9qi8nPOXA3diZENme/qsc+KBISH3KZcUQcNQZ1DEvwfvPMgptFZFWx/RbI6r+oQzbsXYW9hyJsXtAsc/uzl5ZsBjWWb08X7ZzC+0m+vRDH/WgHqoDjZvpvCdGLvgXZV+/4puFNwwRtWadknDMc1+9+/sOwFoo7g1SDf4GQlkv97H925EnxUH5A3E8c8LhiGmEdS+uknNlwAn7TrIuOXJNgWMQUoa68WYrGpOAYtIBBH074yUm+ivRqevY2qBOlfem4qNruisk/OphqsMR8RP8B0k5AKSEeQv19NLC+WF2mnpzVAhgb0AWFMSdz07/M9+1ornf8KsgKshk0/B9tZQbDjzlKmzkd2prYvuRixuJsmzav4iDTCpmvudWwkdpMqc58C2PDCcKwlWsPThVc8UsPAL0XD4h6I6X4GkougtcLtn32yyjtauINFRRTn9T/P3QsGSfpOpxF6E1+I7UYE5nYRahggdWtOe5vpMdG2ne/kXRtYIZE1AuZ1KOARWmdhj7gs26IOVmDKC+fC8DVSsnLHOgCVQVjV8CZBdrhW5v4qYsoZY4Z6jBM6I8DDQ+NUYtX6vS+qD/0ZUUJYLqFwBjUD2DLyAGB4m6WTa+Nn5VCXOAL0haCGFU4uY1cmcphp6GXtfEYUgQUpBMoeW855yNTG504F6wAxhCfjUelojla/uU3MB0ZERmcj4xofTyktku2tkd5+edKobV3wnZ9RK8KTymI4raSXw8ikpI0wQLxDP8A18QrK+gZB5ferMoUJi6+Ewnx9x3/VAqaQTaHLjeB3Lg1VUpxeNCWr/1B9qPXMBzneH/VSkG3StOgzBJC94tmr21I9CC1JA5dSmiBCx2HOr1Nl30ExSD2+XitrwsbCKWASd0fwvh6WLkiSWVgoHq28VqUdYv8YkalqlnahjEnqxUOihFBjjSaGLIs6UFL6QVFL/aoLmngZDdaGVwmJg43dxXyCqjOCDNDJpKZ+nUsL9oLAQNOH8Nrc54HlJbVkF0kIZk0zGf7Gt7PKRzLjO9iwAxUkPCWRXF69QP/+C3rnHYZf+t8RV0NDRv0zs6ZojxWUOS0MX/TEzTt62Lzh6mcahjqeJfSI7CWXUqTv/9IO7p4mdhthEYcmW0cnIPDZ7109fGKslCOOgADfxibhCP8UF2quYfWoSJcL6hh9aaTDThbguwGaUYLE0QyN1a0arhp4l2oX3YHqPg2jRuijEsNXKsCUJ3HBI9klIl5ZxnD9fFK6k7RUiJB06dFbiq9SgzpphExoUDpY2a63TztmG0W2LDLBC/e0HrSsqh+MZXINPq5EK6KQTQHkdDfoUtt+XBS8PqaIK/eZngiWq+5FPfOsMYnD8Gmu05v1RbZiGzHU5o8jTPniI7bFLgQY4ZaAb7u03wpl7f+zRhW2/Wgien8Ieorq0nJuVEouMX0vby23mT6DF2HVWdukG1BVkaPVmYB6Wh4ObINYdNYYbKYpSui3NQl4hQKs5CSa5Kg1Lz+j8zlQuQR1P+hjNhm9llvSBg4yH/+uGoo8zkiPCliuwag+9RCoh//Uat+NT5ne9+G+xp7IZpfNxfJC+qTJcQRi8ZSEDZoh6qUsGgiRxiBOZH9cxIjx1fd+jKj5NBmjw1A+o34GWx879841xBvDO2aetQAheDNTeMJj2J26tRbJRA5KaoxrdUmineZ7yGBKI7LOPX+hKom2DJu5sbdido2njcAhetXTFa7JDV0KVFtvxIYllUChIZHItx3/ai/tn/ETElx0WKvqof2g16Hy/yTzfGLlIQSitumfZyCxpBJdly68r6tW7D15+K5uFQLlxTvs4L7gibXkL+ZjouSgViPZeusvJ+z0vQJ058ZAgjyoZthwEIjwgqacWPDtD0Q2k+1gYqJ3UnbGS48YPh0q1aBc5ULrSPp4c8Llbxfks8N3Z5aoEDhd7NvfLJNylUrtZNWWTRTalguh66JErhZD6ezxFuKpI2g0zcAFzCTbm/MbODg8PLADBvJhEAkabpoq//CCr+jSy/i/iRTsQMZ1J4Ihc8dgdCo909BoO2c38CPxWp6UOgfdmyfdYZNzJ7TciYgOFO7BAsFRi/R8fhkrPEUREgEpQIip5stlJUMxI1lBYl3kqrkYX8uIwbbAUqaVWUFaR1Keg8r9lvw9YbXz/MLbYTmzOn3mpX50Y8mEE3d2OykFsVCiDrZwFCIemFB+eGJAKj3RXtDsoVOkuHRjNY6Ymt+2P++VODXqmnBfCCZfAgpjhR9l153s6Dg/PO+CYks4lvRMM8fjPFSMREglCLJ2pgeBZR41oQ40Q2zfxz2i6BdZf4/CBG53gby9G6odxcXmTdMSCV/c/0whdRTwGZw/5wM8Ajqg9XSW9Bym5F7NsiECIeeqUyZ0qwFhcyuJB82HMbbAsbE/mZBQEBecele3lJpoQhFVBsQE6sp13QOWOVxLcAfrbZIgBX1GN+Zi1nS1YFV0ccU9jBqhMbEF3VcpwoOupN7qkq1yIfa3FAletXq1KUlIaw9Jjv9tKYYnPjeT/VXqJUM5bnwhzdaiPGXaH6x/0a9I5P6P+zM8vjUU6x9c+Y9+OIlcExmKg5YNG0p+dYNXsWLxbwAYE7efJ+Po0l3fN19+DKb6qmRTqFFmUge5JXPPRa30skgLLFpD+HMVj6qCBXf0BcwxfAFYYPuKsghwbFjhcAw5grKe0rH3of2ohWEJ/ATZWi8ZQOQiX/VWUAEad4/u7kkg8AXlR4LMfcGFpvQMDKmh8AsPVaLW8jK93jiHT9TaONDEyK38oa0G996VEo842YqBghE6bBFDqlALy0YRbNky917F96KpSrdE0XQtQIlL/O7KzC8Kw6mSWPp0kXur6d+UL3iBg1Ztb4WTyOij872twpJIUD82CAJrnzZgYQKg1wbCZNBYly/90GGGHxTR2xfKlYuyBiIqXZepDQzYOcYlWVc27c2dG19Q6eLAvn1n+sUyG6akR5rO/qhx/4T7JsiwMvtmgUSjL2Aw/8Q1rmLzLquHaNnzgv/ZBUDyXfR2q61xcVfC0JDqpG9r9+bNbXDHxErgpi+Y5dG4XaalbSJwfdd5CcJEjpzPFsR4AVsMkTzTVW6t/MMv5339R34AZixu/UVARQAUhnvUaygj4RiriU2FcaxrREoevXc0zA3dy4LfLcLPTUNpOTb8e2HrzoWy87ib1JTY9DU63JZ9amNaAIdVPDHDu6rP0bR9RXwtKyINg2hZ3J6TEMpJuMu9cwLQMIilBcWxuZjmkY6E5q13E5hLAiLecgqG8VNQ2yj/zULcRNznrB0QAcEmb1Y57IMoepgigO41NRUSMBB8lxMr0JdwTsMCVI3gp1I5zshb+9UsJchcINVvaYV8X7h/AGGu6AOKgZ8tRiH3fglFQfNriNikN0FFmcVm1DjDLeLpErQFhriRgrW+CVjIQ64WLcLyRRkMLDAIZp/KGkSib75QbihF2xuWbXi/qPODj6fl9mLcyawt9fb00UncGFmJj03cFT3tBvdghP5Y0GZY2GQqifcha7Im7SOnAvxhflKO4QcRnrbxhWKcHY9uag0g0p4q3UMrwCR6clod5M07nLH27YxjyssFaQI8hYBr91PE1uAOBDgRKIlyb0XrtVWiJPIkQPeMNgbZU4T7AqYxtEXGU2Ur5d+tU+6kejAILOyORlhw5FA60a1ByekwdSQ
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
@@ -580,7 +517,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fengling189.github.io/2021/09/14/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">https://fengling189.github.io/2021/09/14/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</a>
+                    <a href="https://fengling189.github.io/2021/09/23/ONU%E9%85%8D%E7%BD%AE/">https://fengling189.github.io/2021/09/23/ONU%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -618,8 +555,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">
-                                    <span class="chip bg-color">用户登录与密码修改</span>
+                                <a href="/tags/%E5%85%89%E7%8C%AB/">
+                                    <span class="chip bg-color">光猫</span>
                                 </a>
                             
                         </div>
@@ -789,77 +726,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/09/14/%E5%8D%8E%E4%B8%BA%E6%80%9D%E7%A7%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AESNMP/">
+                <a href="/2021/09/23/ONU%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="华为思科交换机配置SNMP">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ONU配置">
                         
-                        <span class="card-title">华为思科交换机配置SNMP</span>
+                        <span class="card-title">ONU配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BA%A4%E6%8D%A2%E6%9C%BA/" class="post-category">
-                                    交换机
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%85%8D%E7%BD%AESNMP/">
-                        <span class="chip bg-color">配置SNMP</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/09/14/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="华为交换机用户登录与密码修改">
-                        
-                        <span class="card-title">华为交换机用户登录与密码修改</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
+                            阅读本文章需要输入密码查看
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-23
                             </span>
                         <span class="publish-author">
                             
@@ -877,8 +766,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E4%B8%8E%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">
-                        <span class="chip bg-color">用户登录与密码修改</span>
+                    <a href="/tags/%E5%85%89%E7%8C%AB/">
+                        <span class="chip bg-color">光猫</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/09/16/%E5%8D%8E%E4%B8%BAONU%E6%81%A2%E5%A4%8D%E5%87%BA%E5%8E%82%E8%AE%BE%E7%BD%AE/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="华为ONU恢复出厂设置">
+                        
+                        <span class="card-title">华为ONU恢复出厂设置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%A4%E6%8D%A2%E6%9C%BA/" class="post-category">
+                                    交换机
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%87%8D%E7%BD%AE5822-ONU/">
+                        <span class="chip bg-color">重置5822 ONU</span>
                     </a>
                     
                 </div>
