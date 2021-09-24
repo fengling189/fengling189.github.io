@@ -502,9 +502,11 @@ snmp-agent sys-info location 2nd-flood                #设置设备位置
 <h4 id="思科交换机配置"><a href="#思科交换机配置" class="headerlink" title="思科交换机配置"></a>思科交换机配置</h4><pre><code>enable #进入特权模式
 Password: password #输入特权密码
 conf t #进入配置模式
-snmp-server community isesolSYSW ro #设置只读团体名
+show ip interfaces brief    #查看端口
+snmp-server community public123 ro #设置只读团体名
+ip route 0.0.0.0 0.0.0.0 192.168.0.254 #配置网关
 snmp-server enable traps #设置陷阱
-snmp-server host 10.24.220.230 isesolSYSW #设置目标ip
+snmp-server host 10.24.220.230 public123 #设置目标ip
 snmp-server trap-source loopback0  将loopback接口的IP地址作为SNMP Trap的发送源地址
 do wr #保存配置
 </code></pre>
@@ -530,6 +532,12 @@ snmp-server enable traps
 </code></pre>
 <h5 id="SNMP配置验证"><a href="#SNMP配置验证" class="headerlink" title="SNMP配置验证"></a>SNMP配置验证</h5><p>.1.3.6.1.2.1.1.1.0 #交换机品牌、型号等信息</p>
 <pre><code>snmpwalk -v 2c -c public 10.24.11.1 .1.3.6.1.2.1.1.1.0
+</code></pre>
+<h4 id="思科查看所有端口状态"><a href="#思科查看所有端口状态" class="headerlink" title="思科查看所有端口状态"></a>思科查看所有端口状态</h4><p>进入特权模式下:</p>
+<pre><code>show ip interface brief
+</code></pre>
+<p>查看当前所有配置：</p>
+<pre><code>show running-config
 </code></pre>
 
                 
