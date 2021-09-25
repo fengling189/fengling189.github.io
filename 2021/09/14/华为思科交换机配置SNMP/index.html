@@ -479,21 +479,34 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="华为思科交换机配置SNMP"><a href="#华为思科交换机配置SNMP" class="headerlink" title="华为思科交换机配置SNMP"></a>华为思科交换机配置SNMP</h1><h4 id="华为交换机配置"><a href="#华为交换机配置" class="headerlink" title="华为交换机配置"></a>华为交换机配置</h4><pre><code>system-view &lt;!--#进入系统视图--&gt;
+
 snmp-agent &lt;!--#使能snmp-agent--&gt;
+
 snmp-agent community read isesolSYSW &lt;!--#设置可读团体名--&gt;
+
 snmp-agent sys-info version all 
+
 snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c &lt;!--#设置接收 SNMP 通知/陷阱报文的目标主机--&gt;
 </code></pre>
-<h5 id="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"><a href="#不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置" class="headerlink" title="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"></a>不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置</h5><pre><code>   system-view #进入系统视图
-   display current-configuration #查看原有配置
-   undo snmp-agent community read cipher %^%#sN(lNiTo[&lt;JeO)UkV8a/_WsTMacs&gt;&lt;&gt;8jI=c~8J)C&#123;FUIGY&#39;j5n5#\:Ek|$:_li$&lt;;52&#123;Bi=%pQEx-LT%^%# #取消原有团体名
-   undo snmp-agent target-host inform address udp-domain 172.20.10.90 udp-port 161 params securityname cipher %^%#W,O@-MawcNvxL4NM*_!AxW`@4jOp(F1Wid.*ra:V%^%# #取消原有target-host
-   snmp-agent community read isesolSYSW #设置新的团体名
-   snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c #设置新的target-host
-   undo snmp-agent #取消启用snmp-agent
-   snmp-agent #重新启用snmp-agent
-   quit #退出系统视图
-   save #保存当前配置
+<h5 id="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"><a href="#不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置" class="headerlink" title="不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置"></a>不过我们有时候会接手上一任管理员的交换机，这时候需要做取消配置</h5><pre><code>system-view #进入系统视图
+   
+display current-configuration #查看原有配置
+   
+undo snmp-agent community read cipher %^%#sN(lNiTo[&lt;JeO)UkV8a/_WsTMacs&gt;&lt;&gt;8jI=c~8J)C&#123;FUIGY&#39;j5n5#\:Ek|$:_li$&lt;;52&#123;Bi=%pQEx-LT%^%# #取消原有团体名
+   
+undo snmp-agent target-host inform address udp-domain 172.20.10.90 udp-port 161 params securityname cipher %^%#W,O@-MawcNvxL4NM*_!AxW`@4jOp(F1Wid.*ra:V%^%# #取消原有target-host
+   
+snmp-agent community read isesolSYSW #设置新的团体名
+   
+snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c #设置新的target-host
+
+undo snmp-agent #取消启用snmp-agent
+
+snmp-agent #重新启用snmp-agent
+
+quit #退出系统视图
+
+save #保存当前配置
 </code></pre>
 <h5 id="其他配置-联系方式和位置，这个可有可无"><a href="#其他配置-联系方式和位置，这个可有可无" class="headerlink" title="其他配置 联系方式和位置，这个可有可无"></a>其他配置 联系方式和位置，这个可有可无</h5><pre><code>snmp-agent sys-info contact mail:10000@qq.com          #设置联系方式 
 snmp-agent sys-info location 2nd-flood                #设置设备位置
@@ -535,6 +548,7 @@ snmp-server enable traps
 </code></pre>
 <h4 id="思科查看所有端口状态"><a href="#思科查看所有端口状态" class="headerlink" title="思科查看所有端口状态"></a>思科查看所有端口状态</h4><p>进入特权模式下:</p>
 <pre><code>show ip interface brief
+
 </code></pre>
 <p>查看当前所有配置：</p>
 <pre><code>show running-config
