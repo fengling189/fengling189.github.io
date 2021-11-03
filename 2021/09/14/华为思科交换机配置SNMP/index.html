@@ -484,6 +484,8 @@ snmp-agent &lt;!--#使能snmp-agent--&gt;
 
 snmp-agent community read isesolSYSW &lt;!--#设置可读团体名--&gt;
 
+ip route-static 0.0.0.0 0.0.0.0 192.168.0.254 //配置默认网关
+
 snmp-agent sys-info version all 
 
 snmp-agent target-host inform address udp-domain 10.24.220.230 udp-port 161 params securityname isesolSYSW v2c &lt;!--#设置接收 SNMP 通知/陷阱报文的目标主机--&gt;
