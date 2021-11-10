@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Win10关闭自动更新</title>
+      <link href="/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
+      <url>/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Win10关闭自动更新"><a href="#Win10关闭自动更新" class="headerlink" title="Win10关闭自动更新"></a>Win10关闭自动更新</h1><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步:"></a>第一步:</h3><ol><li>右击电脑左下角的微软按钮，弹出的界面，我们点击运行；</li><li>或者WIN+R调出运行框输入services.msc，之后点击确定；</li></ol><p>​    <img src="/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/1.jpg"></p><p>​    <img src="/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/2.jpg"></p><h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步:"></a>第二步:</h3><ol><li>弹出的界面，我们双击Windows Update；</li></ol><p>​    <img src="/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/3.jpg"></p><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步:"></a>第三步:</h3><ol><li><p>弹出的界面，我们将启用状态改为禁用，之后点击确定即可。</p><p><img src="/2021/11/10/Win10%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/4.jpg"></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> PC功能配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Win10关闭自动更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>华为交换机清除配置</title>
       <link href="/2021/11/03/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%B8%85%E9%99%A4%E9%85%8D%E7%BD%AE/"/>
       <url>/2021/11/03/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%B8%85%E9%99%A4%E9%85%8D%E7%BD%AE/</url>
