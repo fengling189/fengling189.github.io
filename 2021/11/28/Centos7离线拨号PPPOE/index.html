@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="用PHP编写简单的api, 风铃网络">
+    <meta name="keywords" content="Centos7离线拨号PPPOE, 风铃网络">
     <meta name="description" content="风铃之音，我的心声！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>用PHP编写简单的api | 风铃网络</title>
+    <title>Centos7离线拨号PPPOE | 风铃网络</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">用PHP编写简单的api</h1>
+                    <h1 class="description center-align post-title">Centos7离线拨号PPPOE</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/">
-                                <span class="chip bg-color">用PHP编写简单的api</span>
+                            <a href="/tags/Centos7%E7%A6%BB%E7%BA%BF%E6%8B%A8%E5%8F%B7/">
+                                <span class="chip bg-color">Centos7离线拨号</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/PHP/" class="post-category">
-                                PHP
+                            <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                Linux系统
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-10
+                    2021-11-28
                 </div>
                 
 
@@ -478,96 +478,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="用PHP编写简单的api（数据接口）"><a href="#用PHP编写简单的api（数据接口）" class="headerlink" title="用PHP编写简单的api（数据接口）"></a>用PHP编写简单的api（数据接口）</h2><h3 id="一、编写接口所需几样工具或软件（均是win7-64位）："><a href="#一、编写接口所需几样工具或软件（均是win7-64位）：" class="headerlink" title="一、编写接口所需几样工具或软件（均是win7+64位）："></a>一、编写接口所需几样工具或软件（均是win7+64位）：</h3><ol>
-<li><p>phpStudy、SQLyog和编码工具（sublime text/webStorm/vs code均可，按自己习惯来）；</p>
-</li>
-<li><p>安装好phpStudy之后，打开软件，点击启动；如果Apache和MySQL右边的显示都是绿色的，那么说明服务启动成功；<span style="color:#f33b45">另外注意一下开始的PHP服务版本，因为不同的版本对应不同node.js版本或SQLyog版本，如果开启不了，则自行百度解决，一般都是要下载对应支持的VC9（分32位和64位）或VC11（分32位和64位）。</span></p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/1.png"></p>
-</li>
-<li><p>特别要注意的是，项目代码一定要放在WWW目录下，也就是安装phpStudy的目录下。我的是phpStudy/WWW，新版phpStudy可能会不一样，多找找几个文件夹，找到WWW文件夹即可。</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/2.png"></p>
-</li>
-<li><p>SQLyog：用于操作数据库。正版的需要破解（破解方法百度），打开之后就弹出以下窗口，有四个信息是比较重要的。</p>
-<ol>
-<li>MySQL主机地址：填写 localhost即可</li>
-<li>用户名和密码：默认都是root</li>
-<li>端口：默认3306</li>
-<li>点击“连接”按钮进入（千万要注意：只有在mysql服务启动之后，才能点击连接，不然会出现错误码2003的错误提示）</li>
-</ol>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/3.png"></p>
-</li>
-<li><p>右击左上角的root@localhost，然后选择创建数据库；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/4.png"></p>
-</li>
-<li><p>然后在数据库名，填写自己的数据名称；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/5.png"></p>
-</li>
-<li><p>创建之后，点击左边的＋号打开，然后再右击table，会出现创建表的选项；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/6.png"></p>
-</li>
-<li><p>点击创建表之后弹出以下框，随后在表格里填写你想要的字段和这个字段的数据类型和长度大小以及是否为空，默认值为多少等，填写完之后点击左下角的创建表就创建成功了；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/7.png"></p>
-</li>
-<li><p>最起初我们肯定要获取到数据的，也就是get请求，所以表中我们要填充一些数据</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/8.png"></p>
-</li>
-</ol>
-<h3 id="二、安装后台开发环境："><a href="#二、安装后台开发环境：" class="headerlink" title="二、安装后台开发环境："></a>二、安装后台开发环境：</h3><ol>
-<li>这里博主用的是比较流行的后台框架lavarel，可以直接去管理一键下载即可，然后解压安装；</li>
-<li>将解压后的文件夹放在phpStudy下的WWW文件夹下，开启phpStudy之后，直接在浏览器里输入：localhost/解压后的文件夹名称/server/public/，然后回车就可看到以下界面（红色框是我的文件路径），出现以下界面说明开发环境搭建成功。</li>
-</ol>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/9.png"></p>
-<h3 id="三、正式编写接口："><a href="#三、正式编写接口：" class="headerlink" title="三、正式编写接口："></a>三、正式编写接口：</h3><ol>
-<li><p>首先要连接到你的本地数据库（也就是刚才在SQLyog里新建的数据库）。将解压后的项目拖到编辑工具里（这里我用的sublime text），然后打开.env文件，如下图：</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/10.png"></p>
-</li>
-<li><p>然后在里面修改一些配置。下图中我框出的六个配置要跟之前设置的要匹配，比如DB_CONNECTION=mysql；DB_HOST=localhost；DB_PORT=3306；即连接的数据库类型、域名和端口号，这个一般都是默认的，也与我们之前设置的是匹配的，最重要的是下面椭圆框框出的三个：</p>
-<p>DB_DATABASE=test；这个是链接的数据库名称，刚才我们新建的就是test数据库；</p>
-<p>下面两个是用户名和密码：默认都是root</p>
-<p>DB_USERNAME=root<br>DB_PASSWORD=root</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/11.png"></p>
-</li>
-<li><p>连接好数据库之后，在app目录下新建一个Question.php文件，用于访问question数据表；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/12.png"></p>
-<pre><code>class Question extends Model&#123;
-    protected $table = &#39;question&#39;;//这里是访问question这个表
-    protected $primaryKey = &#39;id&#39;;//这是访问question表必须要带的字段
- 
-    protected function getDateFormat()
-    &#123;
-        return time();
-    &#125;
-&#125;
-</code></pre>
-</li>
-<li><p>开始编写真正意义上的接口了。在app/Http/Controllers目录下新建一个QuestionController.php文件，然后在上面写上：use App\Question 表示要接入这个数据，便于操作；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/13.png"></p>
-<pre><code>    public function getQuestion(Request $request)&#123;
-        $response = array(&#39;status&#39;=&gt;&#39;0&#39;,&#39;msg&#39;=&gt;&#39;failed&#39;,&#39;data&#39;=&gt;&#39;&#39;);
-        $data = array();
-        // 获取请求参数值
-        $questionId = $request-&gt;input(&quot;questionId&quot;);
-        // 根据参数值去向表里查找对应的数据
-        $question = Question::find($questionId);
-        // 查找完毕之后，把查找到的数据赋值给response下的data字段
-        $response[&#39;data&#39;] = $question;
-        $response[&#39;status&#39;] = &#39;2&#39;;
-        $response[&#39;msg&#39;] = &#39;success&#39;;
-        return json_encode($response);
-    &#125;
-</code></pre>
-</li>
-<li><p>写完接口之后，最后是通过路由进行网络请求的，所以还要在routes目录下的web.php文件里写下：</p>
-<p>Route::any(‘getQuestion’, “QuestionController@getQuestion”);用于访问这个接口；</p>
-<p><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/14.png"></p>
-</li>
-<li><p>测试。最后一个步骤就是测试自己写的接口是否可用，测试之前一定要记得把服务器打开。在浏览器地址输入栏输入：</p>
-<p>localhost/解压后的文件夹名称/server/public/getQuestion?questionId=1就可以获取到后台返回的数据了。这时会发现，返回的数据跟我们之前在表中填充的数据是一模一样的，那就意味着你写接口是成功的。<br><img src="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/15.png"></p>
-</li>
-</ol>
-<h6 id="四、在以上三个大步骤当中，肯定不是那么一帆风顺的，肯定会遇到各种各样的问题，这个时候也是考验自己发现问题和解决问题能力的时候。不过大致的后台开发过程就是这样的，但是要注意的是，这个是本地配置的开发环境，用的也是本地的数据。最后要想让自己的作品让别人也能看见并且使用，那是需要把你的代码部署到服务器的，那个时候各个配置问题又不一样了，那就要把本地的开发环境换成线上的环境了，这里面要学的又会有很多…祝各位学习愉快。"><a href="#四、在以上三个大步骤当中，肯定不是那么一帆风顺的，肯定会遇到各种各样的问题，这个时候也是考验自己发现问题和解决问题能力的时候。不过大致的后台开发过程就是这样的，但是要注意的是，这个是本地配置的开发环境，用的也是本地的数据。最后要想让自己的作品让别人也能看见并且使用，那是需要把你的代码部署到服务器的，那个时候各个配置问题又不一样了，那就要把本地的开发环境换成线上的环境了，这里面要学的又会有很多…祝各位学习愉快。" class="headerlink" title="四、在以上三个大步骤当中，肯定不是那么一帆风顺的，肯定会遇到各种各样的问题，这个时候也是考验自己发现问题和解决问题能力的时候。不过大致的后台开发过程就是这样的，但是要注意的是，这个是本地配置的开发环境，用的也是本地的数据。最后要想让自己的作品让别人也能看见并且使用，那是需要把你的代码部署到服务器的，那个时候各个配置问题又不一样了，那就要把本地的开发环境换成线上的环境了，这里面要学的又会有很多…祝各位学习愉快。"></a>四、在以上三个大步骤当中，肯定不是那么一帆风顺的，肯定会遇到各种各样的问题，这个时候也是考验自己发现问题和解决问题能力的时候。不过大致的后台开发过程就是这样的，但是要注意的是，这个是本地配置的开发环境，用的也是本地的数据。最后要想让自己的作品让别人也能看见并且使用，那是需要把你的代码部署到服务器的，那个时候各个配置问题又不一样了，那就要把本地的开发环境换成线上的环境了，这里面要学的又会有很多…祝各位学习愉快。</h6><p>————————————————<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Charles_Tian/article/details/81274528">https://blog.csdn.net/Charles_Tian/article/details/81274528</a></p>
-<p>​    </p>
-
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="<font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font>" />
+    <label for="pass"><font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font></label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
@@ -593,7 +517,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fengling189.github.io/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/">https://fengling189.github.io/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/</a>
+                    <a href="https://fengling189.github.io/2021/11/28/Centos7%E7%A6%BB%E7%BA%BF%E6%8B%A8%E5%8F%B7PPPOE/">https://fengling189.github.io/2021/11/28/Centos7%E7%A6%BB%E7%BA%BF%E6%8B%A8%E5%8F%B7PPPOE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,8 +555,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/">
-                                    <span class="chip bg-color">用PHP编写简单的api</span>
+                                <a href="/tags/Centos7%E7%A6%BB%E7%BA%BF%E6%8B%A8%E5%8F%B7/">
+                                    <span class="chip bg-color">Centos7离线拨号</span>
                                 </a>
                             
                         </div>
@@ -802,9 +726,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/11/28/Centos7%E7%A6%BB%E7%BA%BF%E6%8B%A8%E5%8F%B7PPPOE/">
                     <div class="card-image">
@@ -822,9 +747,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -837,6 +762,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -855,13 +781,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/10/PNP%E5%92%8CNPN%E5%BC%80%E5%85%B3%E7%94%B5%E8%B7%AF/">
+                <a href="/2021/11/10/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="PNP和NPN开关电路">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="用PHP编写简单的api">
                         
-                        <span class="card-title">PNP和NPN开关电路</span>
+                        <span class="card-title">用PHP编写简单的api</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -878,8 +804,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%89%A9%E8%81%94%E7%BD%91%E7%94%B5%E5%AD%90%E5%92%8C%E7%94%B5%E8%B7%AF/" class="post-category">
-                                    物联网电子和电路
+                            <a href="/categories/PHP/" class="post-category">
+                                    PHP
                                 </a>
                             
                             
@@ -889,8 +815,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PNP%E5%92%8CNPN%E4%B8%89%E6%9E%81%E7%AE%A1/">
-                        <span class="chip bg-color">PNP和NPN三极管</span>
+                    <a href="/tags/%E7%94%A8PHP%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84api/">
+                        <span class="chip bg-color">用PHP编写简单的api</span>
                     </a>
                     
                 </div>

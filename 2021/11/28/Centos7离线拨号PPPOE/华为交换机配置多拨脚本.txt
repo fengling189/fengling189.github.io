@@ -1,0 +1,181 @@
+<Quidway>dis cu
+!Software Version V200R003C00SPC300
+#
+sysname Quidway
+#
+vlan batch 2 101 to 107 1001 to 1021
+#
+stp disable
+#
+diffserv domain default
+#
+aaa
+ authentication-scheme default
+ authorization-scheme default
+ accounting-scheme default
+ domain default
+ domain default_admin
+ local-user admin password cipher %@%@5d~9:M^ipCfL\iB)EQd>3Uwe%@%@
+ local-user admin service-type http
+#
+interface Vlanif1
+#
+interface Vlanif2
+ ip address 192.168.0.80 255.255.255.0
+#
+interface MEth0/0/1
+#
+interface GigabitEthernet0/0/1
+ port link-type access
+ port default vlan 101
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/2
+ port link-type access
+ port default vlan 102
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/3
+ port link-type access
+ port default vlan 103
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/4
+ port link-type access
+ port default vlan 104
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/5
+ port link-type access
+ port default vlan 105
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/6
+ port link-type access
+ port default vlan 106
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/7
+ port link-type access
+ port default vlan 107
+ stp bpdu-filter enable
+ stp edged-port enable
+#
+interface GigabitEthernet0/0/8
+#
+interface GigabitEthernet0/0/9
+#
+interface GigabitEthernet0/0/10
+#
+interface GigabitEthernet0/0/11
+#
+interface GigabitEthernet0/0/12
+#
+interface GigabitEthernet0/0/13
+#
+interface GigabitEthernet0/0/14
+#
+interface GigabitEthernet0/0/15
+#
+interface GigabitEthernet0/0/16
+#
+interface GigabitEthernet0/0/17
+#
+interface GigabitEthernet0/0/18
+#
+interface GigabitEthernet0/0/19
+#
+interface GigabitEthernet0/0/20
+#
+interface GigabitEthernet0/0/21
+#
+interface GigabitEthernet0/0/22
+#
+interface GigabitEthernet0/0/23
+#
+interface GigabitEthernet0/0/24
+#
+interface GigabitEthernet0/0/25
+#
+interface GigabitEthernet0/0/26
+#
+interface GigabitEthernet0/0/27
+#
+interface GigabitEthernet0/0/28
+#
+interface GigabitEthernet0/0/29
+#
+interface GigabitEthernet0/0/30
+#
+interface GigabitEthernet0/0/31
+#
+interface GigabitEthernet0/0/32
+#
+interface GigabitEthernet0/0/33
+#
+interface GigabitEthernet0/0/34
+#
+interface GigabitEthernet0/0/35
+#
+interface GigabitEthernet0/0/36
+#
+interface GigabitEthernet0/0/37
+#
+interface GigabitEthernet0/0/38
+#
+interface GigabitEthernet0/0/39
+#
+interface GigabitEthernet0/0/40
+ qinq vlan-translation enable
+ port hybrid pvid vlan 2
+ undo port hybrid vlan 1
+ port hybrid tagged vlan 101 to 107 1001 to 1021
+ port hybrid untagged vlan 2
+ port vlan-mapping vlan 1001 to 1003 map-vlan 101
+ port vlan-mapping vlan 1004 to 1006 map-vlan 102
+ port vlan-mapping vlan 1007 to 1009 map-vlan 103
+ port vlan-mapping vlan 1010 to 1012 map-vlan 104
+ port vlan-mapping vlan 1013 to 1015 map-vlan 105
+ port vlan-mapping vlan 1016 to 1018 map-vlan 106
+ port vlan-mapping vlan 1019 to 1021 map-vlan 107
+#
+interface GigabitEthernet0/0/41
+#
+interface GigabitEthernet0/0/42
+#
+interface GigabitEthernet0/0/43
+#
+interface GigabitEthernet0/0/44
+#
+interface GigabitEthernet0/0/45
+#
+interface GigabitEthernet0/0/46
+#
+interface GigabitEthernet0/0/47
+#
+interface GigabitEthernet0/0/48
+ port link-type access
+ port default vlan 2
+#
+interface XGigabitEthernet0/0/1
+#
+interface XGigabitEthernet0/0/2
+#
+interface XGigabitEthernet0/0/3
+#
+interface XGigabitEthernet0/0/4
+#
+interface NULL0
+#
+user-interface con 0
+user-interface vty 0 4
+user-interface vty 16 20
+#
+return
+
