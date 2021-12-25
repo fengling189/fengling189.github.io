@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ONU配置, 风铃网络">
+    <meta name="keywords" content="交换机直拨脚本, 风铃网络">
     <meta name="description" content="风铃之音，我的心声！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ONU配置 | 风铃网络</title>
+    <title>交换机直拨脚本 | 风铃网络</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ONU配置</h1>
+                    <h1 class="description center-align post-title">交换机直拨脚本</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%85%89%E7%8C%AB/">
-                                <span class="chip bg-color">光猫</span>
+                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/">
+                                <span class="chip bg-color">服务器直拨脚本</span>
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-23
+                    2021-12-25
                 </div>
                 
 
@@ -478,20 +478,873 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="<font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font>" />
-    <label for="pass"><font color=red>欢迎来到我的博客 阅读本文章请在此输入密码!</font></label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
+                <table>
+<thead>
+<tr>
+<th><hnlt252>dis cu</hnlt252></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!Software Version V200R003C00SPC300</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>sysname ***创建名称</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>vlan batch 101 1001 to 1140 2001 to 2030   –创建VLAN</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>stp disable    –开启服务</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>undo http server enable</td>
+</tr>
+<tr>
+<td>undo http secure-server enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>undo nap slave enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>diffserv domain default</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>aaa</td>
+</tr>
+<tr>
+<td>authentication-scheme default</td>
+</tr>
+<tr>
+<td>authorization-scheme default</td>
+</tr>
+<tr>
+<td>accounting-scheme default</td>
+</tr>
+<tr>
+<td>domain default</td>
+</tr>
+<tr>
+<td>domain default_admin</td>
+</tr>
+<tr>
+<td>local-user admin password cipher %@%@5d~9:M^ipCfL\iB)EQd&gt;3Uwe%@%@</td>
+</tr>
+<tr>
+<td>local-user admin service-type http</td>
+</tr>
+<tr>
+<td>local-user admin123 password cipher %@%@;nP4IW.”@T&gt;’!q~^zN’,vE‘l%@%@</td>
+</tr>
+<tr>
+<td>local-user admin123 privilege level 3</td>
+</tr>
+<tr>
+<td>local-user admin123 service-type telnet</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface Vlanif1</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface MEth0/0/1</td>
+</tr>
+<tr>
+<td>ip address 192.168.0.252 255.255.255.0     —创建ip</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface Eth-Trunk3     —汇聚</td>
+</tr>
+<tr>
+<td>port link-type trunk</td>
+</tr>
+<tr>
+<td>undo port trunk allow-pass vlan 1</td>
+</tr>
+<tr>
+<td>port trunk allow-pass vlan 2001 to 2030</td>
+</tr>
+<tr>
+<td>mode lacp</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface Eth-Trunk4</td>
+</tr>
+<tr>
+<td>port link-type trunk</td>
+</tr>
+<tr>
+<td>undo port trunk allow-pass vlan 1</td>
+</tr>
+<tr>
+<td>port trunk allow-pass vlan 2001 to 2030</td>
+</tr>
+<tr>
+<td>mode lacp</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/1</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2001</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/2</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2002</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/3</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2003</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/4</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2004</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/5</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2005</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/6</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2006</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/7</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2007</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/8</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2008</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/9</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2009</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/10</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2010</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/11</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2011</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/12</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2012</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/13</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2013</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/14</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2014</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/15</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2015</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/16</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2016</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/17</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2017</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/18</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2018</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/19</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2019</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/20</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2020</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/21</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>port default vlan 2021</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/22</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2022</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/23</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>port default vlan 2023</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/24</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2024</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/25</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2025</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/26</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2026</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/27</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2027</td>
+</tr>
+<tr>
+<td>stp bpdu-filter enable</td>
+</tr>
+<tr>
+<td>stp edged-port enable</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/28</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2028</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/29</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2029</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/30</td>
+</tr>
+<tr>
+<td>port link-type access</td>
+</tr>
+<tr>
+<td>port default vlan 2030</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/31</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/32</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/33</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/34</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/35</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/36</td>
+</tr>
+<tr>
+<td>qinq vlan-translation enable</td>
+</tr>
+<tr>
+<td>port hybrid tagged vlan 1001 to 1030 2001 to 2030</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1001 to 1020 map-vlan 2001</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/37</td>
+</tr>
+<tr>
+<td>qinq vlan-translation enable</td>
+</tr>
+<tr>
+<td>port hybrid tagged vlan 1001 to 1140 2001 to 2030</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1021 to 1040 map-vlan 2002</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/38    —-服务器端口</td>
+</tr>
+<tr>
+<td>qinq vlan-translation enable       —开启服务</td>
+</tr>
+<tr>
+<td>port hybrid tagged vlan 1001 to 1140 2001 to 2030       —允许通过的vlan</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1041 to 1060 map-vlan 2003       —-1041 to 1060  拨号带的vlan</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1061 to 1080 map-vlan 2004      —-2004   要通过的端口vlan</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1081 to 1100 map-vlan 2005</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1101 to 1120 map-vlan 2006</td>
+</tr>
+<tr>
+<td>port vlan-mapping vlan 1121 to 1140 map-vlan 2007</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/39</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/40</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/41</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/42</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/43</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/44</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/45</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/46</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/47</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface GigabitEthernet0/0/48</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface XGigabitEthernet0/0/1</td>
+</tr>
+<tr>
+<td>eth-trunk 3          ——-汇聚端口</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface XGigabitEthernet0/0/2</td>
+</tr>
+<tr>
+<td>eth-trunk 3</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface XGigabitEthernet0/0/3</td>
+</tr>
+<tr>
+<td>eth-trunk 3</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface XGigabitEthernet0/0/4</td>
+</tr>
+<tr>
+<td>eth-trunk 3</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>interface NULL0</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>ip route-static 0.0.0.0 0.0.0.0 192.168.0.254     —配置网关</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>snmp-agent       ——开启服务</td>
+</tr>
+<tr>
+<td>snmp-agent local-engineid 800007DB0330D17EE573D0</td>
+</tr>
+<tr>
+<td>snmp-agent community read cipher ***    —-团体名称public</td>
+</tr>
+<tr>
+<td>snmp-agent sys-info version all      —-开启版本</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>user-interface con 0</td>
+</tr>
+<tr>
+<td>user-interface vty 0 4</td>
+</tr>
+<tr>
+<td>authentication-mode aaa</td>
+</tr>
+<tr>
+<td>user privilege level 3</td>
+</tr>
+<tr>
+<td>user-interface vty 16 20</td>
+</tr>
+<tr>
+<td>#</td>
+</tr>
+<tr>
+<td>return</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>账号</th>
+<th>密码</th>
+<th>vlan</th>
+<th>端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e87504128765</td>
+<td>e87765</td>
+<td>1001</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128766</td>
+<td>e87766</td>
+<td>1002</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128767</td>
+<td>e87767</td>
+<td>1003</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128768</td>
+<td>e87768</td>
+<td>1004</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128769</td>
+<td>e87769</td>
+<td>1005</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128770</td>
+<td>e87770</td>
+<td>1006</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128771</td>
+<td>e87771</td>
+<td>1007</td>
+<td>em1</td>
+</tr>
+<tr>
+<td>e87504128772</td>
+<td>e87772</td>
+<td>1008</td>
+<td>em1</td>
+</tr>
+</tbody></table>
+
                 
             </div>
             <hr/>
@@ -517,7 +1370,7 @@ U2FsdGVkX1+0psQKK2+jJEIqflRFRjYLDjjCfca86ANgJRegNtYDaSBwXOVnLcHRDac3oqxoq0GSfZ9C
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fengling189.github.io/2021/09/23/ONU%E9%85%8D%E7%BD%AE/">https://fengling189.github.io/2021/09/23/ONU%E9%85%8D%E7%BD%AE/</a>
+                    <a href="https://fengling189.github.io/2021/12/25/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/">https://fengling189.github.io/2021/12/25/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -555,8 +1408,8 @@ U2FsdGVkX1+0psQKK2+jJEIqflRFRjYLDjjCfca86ANgJRegNtYDaSBwXOVnLcHRDac3oqxoq0GSfZ9C
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%85%89%E7%8C%AB/">
-                                    <span class="chip bg-color">光猫</span>
+                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/">
+                                    <span class="chip bg-color">服务器直拨脚本</span>
                                 </a>
                             
                         </div>
@@ -726,66 +1579,18 @@ U2FsdGVkX1+0psQKK2+jJEIqflRFRjYLDjjCfca86ANgJRegNtYDaSBwXOVnLcHRDac3oqxoq0GSfZ9C
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/11/03/%E5%8D%8E%E4%B8%BA%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%B8%85%E9%99%A4%E9%85%8D%E7%BD%AE/">
+                <a href="/2021/12/25/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="华为交换机清除配置">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="交换机直拨脚本">
                         
-                        <span class="card-title">华为交换机清除配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%BA%A4%E6%8D%A2%E6%9C%BA/" class="post-category">
-                                    交换机
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B8%85%E9%99%A4%E4%BA%A4%E6%8D%A2%E6%9C%BA%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">清除交换机配置</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/09/16/%E5%8D%8E%E4%B8%BAONU%E6%81%A2%E5%A4%8D%E5%87%BA%E5%8E%82%E8%AE%BE%E7%BD%AE/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="华为ONU恢复出厂设置">
-                        
-                        <span class="card-title">华为ONU恢复出厂设置</span>
+                        <span class="card-title">交换机直拨脚本</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -796,7 +1601,7 @@ U2FsdGVkX1+0psQKK2+jJEIqflRFRjYLDjjCfca86ANgJRegNtYDaSBwXOVnLcHRDac3oqxoq0GSfZ9C
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-25
                             </span>
                         <span class="publish-author">
                             
@@ -810,11 +1615,61 @@ U2FsdGVkX1+0psQKK2+jJEIqflRFRjYLDjjCfca86ANgJRegNtYDaSBwXOVnLcHRDac3oqxoq0GSfZ9C
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%87%8D%E7%BD%AE5822-ONU/">
-                        <span class="chip bg-color">重置5822 ONU</span>
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B4%E6%8B%A8%E8%84%9A%E6%9C%AC/">
+                        <span class="chip bg-color">服务器直拨脚本</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/17/cacti%E5%AE%89%E8%A3%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="cacti安装">
+                        
+                        <span class="card-title">cacti安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            阅读本文章需要输入密码查看
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    Linux系统
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/cacti/">
+                        <span class="chip bg-color">cacti</span>
                     </a>
                     
                 </div>
